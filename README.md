@@ -38,7 +38,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ami"></a> [ami](#output\_ami) | n/a |
+| <a name="output_ami"></a> [ami](#output\_ami) | The AWS AMI resource |
 
 ## Providers
 
