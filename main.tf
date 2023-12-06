@@ -1,16 +1,7 @@
-/**
-* Fetch the most recent Ubuntu 20.04 AMI by default.
-*/
+locals {
+  ami_param = "/aws/service/canonical/ubuntu/server/${var.ubuntu_version}/stable/current/${var.arch}/${var.virtualization_type}/${var.volume_type}/ami-id"
+}
 
-data "aws_ami" "ubuntu" {
-  most_recent = var.most_recent
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/${var.ami_slug}-${var.arch}-server-*"]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-  owners = var.owners
+data "aws_ssm_parameter" "this" {
+  name = local.ami_param
 }

@@ -1,7 +1,7 @@
-variable "ami_slug" {
+variable "ubuntu_version" {
   type        = string
-  description = "Slug to search"
-  default     = "ubuntu-focal-20.04"
+  description = "Ubuntu version"
+  default     = "22.04"
 }
 
 variable "arch" {
@@ -10,14 +10,14 @@ variable "arch" {
   default     = "amd64"
 }
 
-variable "most_recent" {
-  type        = bool
-  description = "Use the most recent?"
-  default     = true
+variable "virtualization_type" {
+  type        = string
+  description = "Virtualization type"
+  default     = "hvm"
 }
 
-variable "owners" {
-  type        = list(string)
-  description = "List of AMI owner AWS account IDs to search"
-  default     = ["099720109477"]
+variable "volume_type" {
+  type        = string
+  description = "Volume type"
+  default     = "ebs-gp2"
 }

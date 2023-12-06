@@ -1,19 +1,21 @@
 # terraform-aws-ami-ubuntu
 
+Fetch the most recent Ubuntu 22.04 AMI by default.
+
 [//]: # (BEGIN_TF_DOCS)
-Fetch the most recent Ubuntu 20.04 AMI by default.
+
 
 ## Usage
 
 Example:
 
 ```hcl
-module "ubuntu_20_04_latest" {
-  source  = "github.com/andreswebs/terraform-aws-ami-ubuntu"
+module "ubuntu_22_04_latest" {
+  source = "github.com/andreswebs/terraform-aws-ami-ubuntu"
 }
 
 locals {
-  ami_id = module.ami_ubuntu_20_04_latest.ami.image_id
+  ami_id = module.ami_ubuntu_22_04_latest.ami.image_id
 }
 
 ## --> use `local.ami_id
@@ -25,10 +27,10 @@ locals {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_ami_slug"></a> [ami\_slug](#input\_ami\_slug) | Slug to search | `string` | `"ubuntu-focal-20.04"` | no |
 | <a name="input_arch"></a> [arch](#input\_arch) | Processor architecture | `string` | `"amd64"` | no |
-| <a name="input_most_recent"></a> [most\_recent](#input\_most\_recent) | Use the most recent? | `bool` | `true` | no |
-| <a name="input_owners"></a> [owners](#input\_owners) | List of AMI owner AWS account IDs to search | `list(string)` | <pre>[<br>  "099720109477"<br>]</pre> | no |
+| <a name="input_ubuntu_version"></a> [ubuntu\_version](#input\_ubuntu\_version) | Ubuntu version | `string` | `"22.04"` | no |
+| <a name="input_virtualization_type"></a> [virtualization\_type](#input\_virtualization\_type) | Virtualization type | `string` | `"hvm"` | no |
+| <a name="input_volume_type"></a> [volume\_type](#input\_volume\_type) | Volume type | `string` | `"ebs-gp2"` | no |
 
 ## Modules
 
@@ -38,7 +40,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_ami"></a> [ami](#output\_ami) | The AWS AMI resource |
+| <a name="output_ami"></a> [ami](#output\_ami) | SSM parameter resource containing the AMI data |
 | <a name="output_ami_id"></a> [ami\_id](#output\_ami\_id) | AMI ID |
 
 ## Providers
@@ -58,7 +60,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_ami.ubuntu](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ami) | data source |
+| [aws_ssm_parameter.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 
 [//]: # (END_TF_DOCS)
 
