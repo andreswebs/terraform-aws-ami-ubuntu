@@ -1,4 +1,3 @@
-
 module "test" {
   source         = "../"
   ubuntu_version = "24.04"
