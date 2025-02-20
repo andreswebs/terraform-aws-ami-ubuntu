@@ -1,2 +1,8 @@
 .DS_Store
 .external_modules/
+.envrc
+.terraform
+.terraform.lock.hcl
+*.tfvars*
+*.tfstate*
+*.tfbackend*

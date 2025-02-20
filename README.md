@@ -10,12 +10,12 @@ Fetch the most recent Ubuntu 22.04 AMI by default.
 Example:
 
 ```hcl
-module "ubuntu_22_04_latest" {
+module "ubuntu_24_04_latest" {
   source = "github.com/andreswebs/terraform-aws-ami-ubuntu"
 }
 
 locals {
-  ami_id = module.ami_ubuntu_22_04_latest.ami.image_id
+  ami_id = module.ami_ubuntu_24_04_latest.ami.image_id
 }
 
 ## --> use `local.ami_id
@@ -28,9 +28,9 @@ locals {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_arch"></a> [arch](#input\_arch) | Processor architecture | `string` | `"amd64"` | no |
-| <a name="input_ubuntu_version"></a> [ubuntu\_version](#input\_ubuntu\_version) | Ubuntu version | `string` | `"22.04"` | no |
+| <a name="input_ubuntu_version"></a> [ubuntu\_version](#input\_ubuntu\_version) | Ubuntu version | `string` | `"24.04"` | no |
 | <a name="input_virtualization_type"></a> [virtualization\_type](#input\_virtualization\_type) | Virtualization type | `string` | `"hvm"` | no |
-| <a name="input_volume_type"></a> [volume\_type](#input\_volume\_type) | Volume type | `string` | `"ebs-gp2"` | no |
+| <a name="input_volume_type"></a> [volume\_type](#input\_volume\_type) | Volume type | `string` | `"ebs-gp3"` | no |
 
 ## Modules
 

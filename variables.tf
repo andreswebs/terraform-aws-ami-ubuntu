@@ -1,7 +1,7 @@
 variable "ubuntu_version" {
   type        = string
   description = "Ubuntu version"
-  default     = "22.04"
+  default     = "24.04"
 }
 
 variable "arch" {
@@ -19,5 +19,5 @@ variable "virtualization_type" {
 variable "volume_type" {
   type        = string
   description = "Volume type"
-  default     = "ebs-gp2"
+  default     = "ebs-gp3"
 }
